@@ -1,0 +1,93 @@
+/* PaymentPage.css - improved alignment & responsive layout */
+* { box-sizing: border-box; }
+
+.payment-container {
+  max-width: 900px;
+  margin: 36px auto;
+  padding: 28px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* heading */
+.payment-container h2 {
+  text-align: center;
+  color: #1d4ed8;
+  margin-bottom: 20px;
+}
+
+/* grid layout: stack on mobile, two columns on desktop */
+.payment-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+/* summary box */
+.payment-summary {
+  background: #f8fafc;
+  padding: 16px;
+  border-radius: 12px;
+  color: #374151;
+  font-size: 0.95rem;
+}
+
+/* payment form */
+.payment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.payment-form label {
+  font-weight: 600;
+  color: #374151;
+}
+
+.payment-form input,
+.payment-form select {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  width: 100%;
+}
+
+.payment-form input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37,99,235,0.06);
+}
+
+/* payment button */
+.payment-btn {
+  padding: 12px 28px;
+  border-radius: 10px;
+  border: none;
+  background: #16a34a;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.payment-btn:hover { background: #15803d; }
+
+/* back button */
+.back-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  cursor: pointer;
+}
+
+/* two-column desktop layout */
+@media (min-width: 880px) {
+  .payment-grid {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+
+  .payment-summary { height: 100%; }
+}
