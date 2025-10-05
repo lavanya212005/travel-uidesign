@@ -32,9 +32,10 @@ function App() {
 
   return (
     <Routes>
+      {/* Home Page */}
       <Route path="/" element={<HomePage />} />
 
-      {/* Separate login routes */}
+      {/* User Login */}
       <Route
         path="/userlogin"
         element={
@@ -46,6 +47,7 @@ function App() {
         }
       />
 
+      {/* Admin Login */}
       <Route
         path="/adminlogin"
         element={
@@ -57,15 +59,17 @@ function App() {
         }
       />
 
+      {/* Register Page */}
       <Route
         path="/register"
         element={<RegisterPage users={users} setUsers={setUsers} />}
       />
 
+      {/* User Dashboard */}
       <Route
         path="/user"
         element={
-          currentUser?.role === "user" ? (
+          currentUser && currentUser.role === "user" ? (
             <UserDashboard
               currentUser={currentUser}
               events={events}
@@ -81,10 +85,11 @@ function App() {
         }
       />
 
+      {/* Admin Dashboard */}
       <Route
         path="/admin"
         element={
-          currentUser?.role === "admin" ? (
+          currentUser && currentUser.role === "admin" ? (
             <AdminDashboard
               currentUser={currentUser}
               events={events}
@@ -100,16 +105,25 @@ function App() {
         }
       />
 
+      {/* Add Event Form */}
       <Route
         path="/addevent"
-        element={<AddEventForm events={events} setEvents={setEvents} />}
+        element={
+          <AddEventForm
+            events={events}
+            setEvents={setEvents}
+            currentUser={currentUser}
+          />
+        }
       />
 
+      {/* Cart Page */}
       <Route
         path="/cart"
         element={<CartPage events={events} setEvents={setEvents} />}
       />
 
+      {/* Document and Payment Pages */}
       <Route path="/document" element={<DocumentPage />} />
       <Route path="/payment" element={<PaymentPage />} />
     </Routes>
